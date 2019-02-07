@@ -1,0 +1,31 @@
+version: "3.0"
+
+services:
+  load-balancer:
+    build: load-balancer
+    ports:
+      - "9000:9000"
+    volumes: 
+      - ./load-balancer:/app
+  app1:
+    build: app
+    links:
+      - db
+    volumes: 
+      - ./app:/app
+  app2:
+    build: app
+    links:
+      - db
+    volumes: 
+      - ./app:/app
+  app3:
+    build: app
+    links:
+      - db
+    volumes: 
+      - ./app:/app
+  db: 
+    build: db
+    volumes: 
+      - ./db:/app
