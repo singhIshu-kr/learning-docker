@@ -6,26 +6,26 @@ services:
     ports:
       - "9000:9000"
     volumes: 
-      - ./load-balancer:/app
+      - ./load-balancer/load-balancer.js:/app/load-balancer.js
   app1:
     build: app
     links:
       - db
     volumes: 
-      - ./app:/app
+      - ./app/app.js:/app/app.js
   app2:
     build: app
     links:
       - db
     volumes: 
-      - ./app:/app
+      - ./app/app.js:/app/app.js
   app3:
     build: app
     links:
       - db
     volumes: 
-      - ./app:/app
+      - ./app/app.js:/app/app.js
   db: 
     build: db
     volumes: 
-      - ./db:/app
+      - ./data.json:/app/data.json

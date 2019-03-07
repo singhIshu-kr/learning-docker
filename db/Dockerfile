@@ -12,6 +12,4 @@ COPY . .
 
 expose 3000
 
-volume /app
-
 cmd ["nodemon", "db.js"]

@@ -2,14 +2,13 @@ const bodyParser = require("body-parser")
 const request = require("request");
 const app = require("express")();
 
-app.use(bodyParser.text());
+app.use(bodyParser());
 
 const hostName = "db"
 
 app.post("/post", (req, res) => {
-  var postData = {
-    data: req.body
-  }
+  var postData =req.body;
+  console.log(req.body);
   var options = {
     method: 'post',
     body: postData,
